@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Sayang! 💕</title>
+  <meta name="description" content="Sebuah hadiah spesial untuk hari ulang tahunmu yang paling indah" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════
+       LOADING SCREEN
+  ══════════════════════════════════ -->
+  <div id="loading-screen">
+    <div class="loader-inner">
+      <div class="loader-heart">💕</div>
+      <p class="loader-text">Menyiapkan sesuatu yang istimewa...</p>
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+
+
+  <!-- ══════════════════════════════════
+       NAV DOTS
+  ══════════════════════════════════ -->
+  <nav class="nav-dots" id="navDots">
+    <a href="#hero" class="nav-dot active" data-label="Beranda"></a>
+    <a href="#countdown" class="nav-dot" data-label="Countdown"></a>
+    <a href="#cake" class="nav-dot" data-label="Kue"></a>
+    <a href="#letter" class="nav-dot" data-label="Surat Cinta"></a>
+    <a href="#quotes" class="nav-dot" data-label="Kutipan"></a>
+  </nav>
+
+  <!-- ══════════════════════════════════
+       SECTION 1 — HERO
+  ══════════════════════════════════ -->
+  <section id="hero" class="section hero-section">
+    <canvas id="confettiCanvas"></canvas>
+
+    <div class="balloons-wrap">
+      <div class="balloon b1">🎈</div>
+      <div class="balloon b2">🎈</div>
+      <div class="balloon b3">🎀</div>
+      <div class="balloon b4">🎈</div>
+      <div class="balloon b5">🎈</div>
+    </div>
+
+    <div class="floating-hearts-wrap" id="heartsWrap"></div>
+    <div class="floating-stars-wrap" id="starsWrap"></div>
+
+    <div class="hero-content">
+      <div class="crown-emoji">👑</div>
+      <p class="hero-sub    anim-up d1">Untuk Kamu, Cintaku…</p>
+      <h1 class="hero-title">
+        <span class="ht-happy anim-up d2">Happy</span>
+        <span class="ht-bday  anim-up d3">Birthday!</span>
+      </h1>
+      <div class="name-badge anim-up d4">
+        <span class="name-text" id="heroName">Sayang 💕</span>
+      </div>
+      <p class="hero-desc anim-up d5">
+        Hari ini adalah harimu yang paling istimewa ✨<br>
+        Semoga kebahagiaanmu tak pernah ada habisnya
+      </p>
+      <button class="hero-cta anim-up d6" onclick="nextPage()" style="border: none; cursor: pointer;">
+        <span>Buka Kejutan Spesialmu</span>
+        <span class="cta-arrow">↓</span>
+      </button>
+    </div>
+
+    <div class="scroll-hint">
+      <div class="scroll-chevron"></div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION 2 — COUNTDOWN
+  ══════════════════════════════════ -->
+  <section id="countdown" class="section countdown-section">
+    <div class="section-glow"></div>
+    <div class="slide-split-layout">
+
+      <!-- KOLOM KIRI: Statistik -->
+      <div class="countdown-left-col">
+        <span class="sec-icon">🎂</span>
+        <h2 class="sec-title">Usiamu yang Ke-<span id="ageDisplay" class="highlight-num">??</span></h2>
+        <p class="sec-sub">Setiap detik bersamamu adalah berkah terindah</p>
+
+        <div class="info-grid">
+          <div class="info-card reveal">
+            <div class="info-num" id="yearsCount">0</div>
+            <div class="info-lbl">Tahun Penuh Cinta</div>
+          </div>
+          <div class="info-card reveal">
+            <div class="info-num" id="monthsCount">0</div>
+            <div class="info-lbl">Bulan Bersama</div>
+          </div>
+          <div class="info-card reveal">
+            <div class="info-num" id="daysCount">0</div>
+            <div class="info-lbl">Hari Indah</div>
+          </div>
+        </div>
+
+        <button class="next-page-btn reveal" onclick="nextPage()">
+          <span>Buka Lilin Ulang Tahun 🕯️</span>
+        </button>
+      </div>
+
+      <!-- KOLOM KANAN: Foto Polaroid -->
+      <div class="countdown-right-col reveal">
+        <div class="photo-polaroid">
+          <img id="partnerPhoto" src="pacar.jpg" alt="Foto Kamu 💕" />
+          <div class="photo-caption" id="photoCaption">Sayangku yang cantik 💕</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION 3 — CAKE
+  ══════════════════════════════════ -->
+  <section id="cake" class="section cake-section">
+    <div class="section-glow"></div>
+    <div class="cake-content">
+      <span class="sec-icon">🕯️</span>
+      <h2 class="sec-title">Tiup Lilinnya, Sayang!</h2>
+      <p class="sec-sub">Buat permohonan dalam hati, lalu tiup lilinnya!</p>
+
+      <div class="cake-wrap reveal" id="cakeWrap">
+        <!-- Candles -->
+        <div class="candles-row" id="candlesRow">
+          <div class="candle" id="c1">
+            <div class="candle-stick"></div>
+            <div class="flame-box">
+              <div class="flame"></div>
+              <div class="flame-glow"></div>
+            </div>
+          </div>
+          <div class="candle" id="c2">
+            <div class="candle-stick"></div>
+            <div class="flame-box">
+              <div class="flame"></div>
+              <div class="flame-glow"></div>
+            </div>
+          </div>
+          <div class="candle" id="c3">
+            <div class="candle-stick"></div>
+            <div class="flame-box">
+              <div class="flame"></div>
+              <div class="flame-glow"></div>
+            </div>
+          </div>
+          <div class="candle" id="c4">
+            <div class="candle-stick"></div>
+            <div class="flame-box">
+              <div class="flame"></div>
+              <div class="flame-glow"></div>
+            </div>
+          </div>
+          <div class="candle" id="c5">
+            <div class="candle-stick"></div>
+            <div class="flame-box">
+              <div class="flame"></div>
+              <div class="flame-glow"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cake Layers -->
+        <div class="cake-layer cake-l1">
+          <span class="cake-txt">💕 Happy Birthday 💕</span>
+        </div>
+        <div class="cake-layer cake-l2"></div>
+        <div class="cake-layer cake-l3"></div>
+        <div class="cake-plate"></div>
+
+        <!-- Sparkle burst overlay -->
+        <div class="sparkle-overlay" id="sparkleOverlay">
+          <span>✨</span><span>🌟</span><span>💫</span><span>⭐</span><span>✨</span><span>💖</span>
+        </div>
+      </div>
+
+      <button class="blow-btn" id="blowBtn" onclick="blowCandles()">
+        <span class="blow-ico">💨</span> Tiup Lilinnya!
+      </button>
+
+      <div class="wish-box" id="wishBox">
+        <div class="wish-big">🌟 Semua Keinginanmu Terkabul! 🌟</div>
+        <div class="wish-small">Karena kamu layak mendapatkan semua kebaikan di dunia ini 💕</div>
+        <div class="wish-actions"
+          style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:1.5rem;">
+          <button class="relight-btn" id="relightBtn" onclick="relightCandles()" style="margin: 0;">🕯️ Nyalakan
+            Lagi</button>
+          <button class="next-page-btn" onclick="nextPage()"
+            style="margin: 0; background: var(--g-gold); box-shadow: var(--glow-gold);">Buka Surat Cinta 💌</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION 4 — LOVE LETTER
+  ══════════════════════════════════ -->
+  <section id="letter" class="section letter-section">
+    <div class="section-glow"></div>
+    <div class="letter-content">
+      <span class="sec-icon">💌</span>
+      <h2 class="sec-title">Surat Cintaku Untukmu</h2>
+      <p class="sec-sub">Dari lubuk hatiku yang paling dalam…</p>
+
+      <div class="envelope-wrap" id="envelopeWrap">
+        <!-- ENVELOPE -->
+        <div class="envelope reveal" id="envelope" onclick="openEnvelope()">
+          <div class="env-flap"></div>
+          <div class="env-body">
+            <div class="env-heart">💕</div>
+            <p class="env-hint">Klik untuk membuka</p>
+          </div>
+        </div>
+
+        <!-- LETTER PAPER (hidden initially) -->
+        <div class="letter-paper" id="letterPaper">
+          <div class="letter-head">
+            <span class="letter-rose">🌹</span>
+            <span class="letter-date-txt" id="letterDateTxt"></span>
+          </div>
+          <div class="letter-body">
+            <p class="letter-greeting">Untuk <strong id="letterName">Kamu</strong> yang selalu di hatiku,</p>
+            <br>
+            <p>Di hari yang sangat istimewa ini, aku ingin kamu tahu betapa bersyukurnya aku bisa ada di sisimu.
+              Kehadiranmu dalam hidupku adalah hadiah terindah yang pernah aku terima.</p>
+            <br>
+            <p>Setiap tawa kecil, setiap momen sederhana bersamamu — semuanya menjadi kenangan yang selalu aku jaga
+              dengan sepenuh hati.</p>
+            <br>
+            <p>Kamu bukan hanya pacarku. Kamu adalah rumahku, inspirasiiku, dan cahaya di setiap hariku yang gelap.</p>
+            <br>
+            <p>Semoga di usiamu yang baru ini, kebahagiaanmu terus bertambah, impian-impianmu terwujud satu per satu,
+              dan cintaku selalu menemanimu ke manapun kamu pergi.</p>
+            <br>
+            <p class="letter-close">Selamat ulang tahun, sayangku. Aku mencintaimu lebih dari yang bisa kuungkapkan
+              dengan kata-kata. 💕</p>
+            <br>
+            <div class="letter-sig">
+              <p>Selalu untukmu,</p>
+              <p class="sig-name">❤️ Aku ❤️</p>
+            </div>
+            <div class="letter-actions" style="text-align: center; margin-top: 1.5rem;">
+              <button class="next-page-btn" onclick="nextPage()">
+                <span>Baca Kata-Kata Cinta 💕</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+       SECTION 5 — QUOTES
+  ══════════════════════════════════ -->
+  <section id="quotes" class="section quotes-section">
+    <div class="section-glow"></div>
+    <div class="quotes-content">
+      <span class="sec-icon">💖</span>
+      <h2 class="sec-title">Kata-Kata Untukmu</h2>
+      <p class="sec-sub">Karena kamu selalu layak diingatkan betapa berartinya kamu</p>
+
+      <div class="quote-card reveal">
+        <div class="qmark open">"</div>
+        <p class="quote-txt" id="quoteTxt">Mencintaimu adalah keputusan terbaik yang pernah aku buat.</p>
+        <div class="qmark close">"</div>
+        <div class="qdots" id="qdots">
+          <span class="qdot active" onclick="goToQuote(0)"></span>
+          <span class="qdot" onclick="goToQuote(1)"></span>
+          <span class="qdot" onclick="goToQuote(2)"></span>
+          <span class="qdot" onclick="goToQuote(3)"></span>
+          <span class="qdot" onclick="goToQuote(4)"></span>
+        </div>
+      </div>
+      <div class="qnav-wrap">
+        <button class="qnav" onclick="prevQuote()">❮</button>
+        <button class="qnav" onclick="nextQuote()">❯</button>
+      </div>
+
+      <!-- FOOTER WISHES -->
+      <div class="footer-wishes">
+        <div class="fw-deco">✨ 💕 🌟 💖 ✨</div>
+        <h3 class="fw-title">Selamat Ulang Tahun!</h3>
+        <p class="fw-text">Semoga hari-harimu selalu dipenuhi cinta, kebahagiaan,<br>dan hal-hal indah yang kamu layak
+          dapatkan 🌹</p>
+        <div class="fw-hearts">💕 💖 💕 💖 💕</div>
+      </div>
+
+      <div class="footer-actions" style="text-align: center; margin-top: 1rem; margin-bottom: 1rem;">
+        <button class="next-page-btn" onclick="showPage(0)"
+          style="background: var(--g-gold); box-shadow: var(--glow-gold);">
+          <span>Ulangi Keindahan Ini 🔄</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Audio -->
+  <audio id="bgMusic" autoplay loop>
+    <!-- Taruh file musik kamu di folder ini dengan nama "music.mp3" -->
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
